@@ -10,6 +10,7 @@ app.use(express.json());
 
 // Routes
 const productRoutes = require("./routes/products");
+<<<<<<< HEAD
 // const orderItemsRoutes = require("./routes/orderItemsRoutes");
 // const ordersRoutes = require("./routes/ordersRoutes");
 const customerRoutes = require("./routes/customerRoutes");
@@ -18,6 +19,14 @@ app.use("/products", productRoutes);
 // app.use("/order-items", orderItemsRoutes);
 // app.use("/orders", ordersRoutes);
 app.use("/customers", customerRoutes); 
+=======
+const orderItemsRoutes = require("./routes/orderItemsRoutes");
+const ordersRoutes = require("./routes/ordersRoutes");
+
+app.use("/products", productRoutes);
+app.use("/order-items", orderItemsRoutes);
+app.use("/orders", ordersRoutes);
+>>>>>>> 701e2e9cef99ee0158b4b4e2cda5ccde0c36a2e8
 
 // Swagger
 const swaggerUi = require("swagger-ui-express");
