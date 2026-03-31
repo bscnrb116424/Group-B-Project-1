@@ -29,6 +29,7 @@ const {
  * =========================
  */
 /**
+ /**
  * @swagger
  * /orders:
  *   post:
@@ -46,25 +47,33 @@ const {
  *             properties:
  *               order_id:
  *                 type: string
+ *                 example: "53cdb2fc8bc7dce0b6741e2150273451"
  *               customer_id:
  *                 type: string
+ *                 example: "9ef432eb6251297304e76186b10a928d"
  *               order_status:
  *                 type: string
+ *                 example: "delivered"
  *               order_purchase_timestamp:
  *                 type: string
  *                 format: date-time
+ *                 example: "2029-04-01 09:30:00"
  *               order_approved_at:
  *                 type: string
  *                 format: date-time
+ *                 example: "2029-04-01 10:00:00"
  *               order_delivered_carrier_date:
  *                 type: string
  *                 format: date-time
+ *                 example: "2029-04-03 08:00:00"
  *               order_delivered_customer_date:
  *                 type: string
  *                 format: date-time
+ *                 example: "2029-04-04 15:30:00"
  *               order_estimated_delivery_date:
  *                 type: string
  *                 format: date-time
+ *                 example: "2029-04-05 18:00:00"
  *     responses:
  *       201:
  *         description: Order created successfully
@@ -77,18 +86,7 @@ router.post("/", createOrder);
  * =========================
  */
 /**
- * @swagger
- * /orders:
- *   get:
- *     summary: Get all orders
- *     tags: [Orders]
- *     responses:
- *       200:
- *         description: List of all orders
- */
-router.get("/", getAllOrders);
-
- /**
+/**
  * @swagger
  * /orders/{id}:
  *   get:
@@ -100,7 +98,7 @@ router.get("/", getAllOrders);
  *         required: true
  *         schema:
  *           type: string
- *           example: 53cdb2fc8bc7dce0b6741e2150273451
+ *           example: "47770eb9100c2d0c44946d9cf07ec65d"
  *         description: Order ID
  *     responses:
  *       200:
@@ -127,26 +125,19 @@ router.get("/:id", getOrderById);
  *         required: true
  *         schema:
  *           type: string
+ *           example: "47770eb9100c2d0c44946d9cf07ec65d"
  *         description: Order ID
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               customer_id:
- *                 type: string
- *               order_status:
- *                 type: string
- *               order_approved_at:
- *                 type: string
- *               order_delivered_carrier_date:
- *                 type: string
- *               order_delivered_customer_date:
- *                 type: string
- *               order_estimated_delivery_date:
- *                 type: string
+ *           example:
+ *             customer_id: "41ce2a54c0b03bf3443c3d931a367089"
+ *             order_status: "delivered"
+ *             order_approved_at: "2029-04-03"
+ *             order_delivered_carrier_date: "03-04-2029"
+ *             order_delivered_customer_date: "03-04-2029"
+ *             order_estimated_delivery_date: "03-04-2029"
  *     responses:
  *       200:
  *         description: Order updated
@@ -172,6 +163,7 @@ router.put("/:id", updateOrder);
  *         required: true
  *         schema:
  *           type: string
+ *           example: 53cdb2fc8bc7dce0b6741e2150273451
  *         description: Order ID
  *     responses:
  *       200:
@@ -213,8 +205,7 @@ router.get("/customer/:customer_id", getOrdersByCustomer);
  * =========================
  */
 /**
- * @swagger
- * /orders/total-sales:
+
  *   get:
  *     summary: Get total sales
  *     tags: [Orders]
